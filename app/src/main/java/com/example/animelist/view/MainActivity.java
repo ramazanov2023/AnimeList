@@ -9,6 +9,9 @@ import android.os.Bundle;
 
 import com.example.animelist.R;
 import com.example.animelist.view.adapter.PagesAdapter;
+import com.example.animelist.view.pages.AnimeDetailFragment;
+import com.example.animelist.view.pages.AnimeListsFragment;
+import com.example.animelist.view.pages.UserAnimeListsFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 

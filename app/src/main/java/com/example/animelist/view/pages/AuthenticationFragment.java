@@ -1,4 +1,4 @@
-package com.example.animelist.view;
+package com.example.animelist.view.pages;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.animelist.R;
 
-public class AnimeListsFragment extends Fragment {
+public class AuthenticationFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_anime_list,container,false);
+        return inflater.inflate(R.layout.fragment_authentication,container,false);
     }
 
     @Override
