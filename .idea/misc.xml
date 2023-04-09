@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Anna/AndroidStudioProjects/AnimeList/app/src/main/res/drawable/gradient_top.xml" value="0.2895" />
         <entry key="..\:/Users/Anna/AndroidStudioProjects/AnimeList/app/src/main/res/layout/activity_main.xml" value="0.359375" />
         <entry key="..\:/Users/Anna/AndroidStudioProjects/AnimeList/app/src/main/res/layout/anime_list_sample_view.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/Anna/AndroidStudioProjects/AnimeList/app/src/main/res/layout/fragment_anime_detail.xml" value="0.359375" />

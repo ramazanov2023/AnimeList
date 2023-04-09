@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFD54F">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,6 +16,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:text="@string/new_anime"
+            android:textColor="@color/text_white_light"
             android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/anime_list_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="246dp"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:textColor="@color/text_white_light"
             android:text="@string/old_anime"
             android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/anime_list_recycler_view1"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="246dp"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -61,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textColor="@color/text_white_light"
             android:layout_marginTop="32dp"
             android:text="@string/favorites_anime"
             android:textSize="16dp"
@@ -70,7 +72,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/anime_list_recycler_view2"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="246dp"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

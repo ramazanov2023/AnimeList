@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AnimeList</string>
-    <string name="new_anime">New Anime</string>
-    <string name="old_anime">Old Anime</string>
-    <string name="favorites_anime">Favorites Anime</string>
+    <string name="new_anime">Ongoing</string>
+    <string name="old_anime">Anons</string>
+    <string name="favorites_anime">Released</string>
 </resources>

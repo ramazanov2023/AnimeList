@@ -12,15 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.animelist.R;
 import com.example.animelist.data.AnimeShort;
+import com.example.animelist.model.api.Api;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AnimeListAdapter extends RecyclerView.Adapter<AnimeListAdapter.Holder> {
     Context context;
-    ArrayList<AnimeShort> list;
+    List<AnimeShort> list;
 
-    public AnimeListAdapter(Context context, ArrayList<AnimeShort> list) {
+    public AnimeListAdapter(Context context, List<AnimeShort> list) {
         this.context = context;
         this.list = list;
     }
@@ -35,7 +37,7 @@ public class AnimeListAdapter extends RecyclerView.Adapter<AnimeListAdapter.Hold
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         AnimeShort anime = list.get(position);
-        String urlPoster = anime.getUrlPoster();
+        String urlPoster = Api.BASE_URL + anime.image.original;
         holder.number.setText(String.valueOf(position));
         Picasso.get().load(urlPoster).into(holder.poster);
     }

@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.animelist.R;
 import com.example.animelist.view.adapter.PagesAdapter;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        setNoFrameMode();
 
         viewPager2 = findViewById(R.id.main_activity_view_pager2);
         tabLayout = findViewById(R.id.main_activity_tab_layout);
@@ -48,5 +51,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attach();
 
+    }
+
+    public void setNoFrameMode() {
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
     }
 }
