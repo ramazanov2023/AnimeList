@@ -1,11 +1,13 @@
 package com.example.animelist.model.api;
 
+import com.example.animelist.data.AnimeDetail;
 import com.example.animelist.data.AnimeShort;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface Api {
@@ -20,4 +22,7 @@ public interface Api {
 
     @GET("/api/animes?status=released&limit=30&season=2023&kind=tv&order=ranked")
     Call<List<AnimeShort>> getReleasedAnime();
+
+    @GET("/api/animes/{id}")
+    Call<AnimeDetail> getDetailAnime(@Path("id") int id);
 }

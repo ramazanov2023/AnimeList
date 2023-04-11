@@ -47,8 +47,8 @@ public class AnimeListsFragment extends Fragment implements Observer {
 //            list.add(new AnimeShort());
 //        }
 
-        AnimeObserver animeObserver = AnimeObserver.getInstance();
-        animeObserver.registerObservers(this);
+//        AnimeObserver animeObserver = AnimeObserver.getInstance();
+        AnimeObserver.getInstance().registerObservers(this);
 
         AnimeListsViewModel.getOngoingAnime();
         AnimeListsViewModel.getAnonsAnime();
@@ -71,23 +71,22 @@ public class AnimeListsFragment extends Fragment implements Observer {
 
     @Override
     public void update() {
+
         if(AnimeListsViewModel.list!=null) {
             recycler.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
-            Log.e("listnull", "setAdapter - " + AnimeListsViewModel.list);
-            recycler.setAdapter(new AnimeListAdapter(getContext(), AnimeListsViewModel.list));
+            recycler.setAdapter(new AnimeListAdapter(getActivity(), AnimeListsViewModel.list,(AnimeListAdapter.MovePages) getActivity()));
         }
 
         if(AnimeListsViewModel.list1!=null) {
             recycler1.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
-            Log.e("listnull", "setAdapter1 - " + AnimeListsViewModel.list1);
-            recycler1.setAdapter(new AnimeListAdapter(getContext(), AnimeListsViewModel.list1));
+            recycler1.setAdapter(new AnimeListAdapter(getActivity(), AnimeListsViewModel.list1,(AnimeListAdapter.MovePages) getActivity()));
         }
 
         if(AnimeListsViewModel.list2!=null) {
             recycler2.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
-            Log.e("listnull", "setAdapter2 - " + AnimeListsViewModel.list2);
-            recycler2.setAdapter(new AnimeListAdapter(getContext(), AnimeListsViewModel.list2));
+            recycler2.setAdapter(new AnimeListAdapter(getActivity(), AnimeListsViewModel.list2,(AnimeListAdapter.MovePages) getActivity()));
         }
+//        AnimeObserver.getInstance().unRegisterObservers(this);
 //        Log.e("listnull","setAdapter - " + list);
     }
 }

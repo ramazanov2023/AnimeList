@@ -29,8 +29,6 @@ public class AnimeListsViewModel {
             @Override
             public void onResponse(Call<List<AnimeShort>> call, Response<List<AnimeShort>> response) {
                 list = response.body();
-                Log.e("listnull","response.body() - " + list);
-                Log.e("listnull","response.body() - " + list.size());
                 AnimeObserver animeObserver = AnimeObserver.getInstance();
                 animeObserver.notifyObservers();
             }
@@ -40,7 +38,6 @@ public class AnimeListsViewModel {
 
             }
         });
-        Log.e("listnull","return - " + list);
     }
 
     public static void getAnonsAnime() {

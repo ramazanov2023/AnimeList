@@ -6,25 +6,30 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.animelist.R;
+import com.example.animelist.model.repository.AnimeObserver;
+import com.example.animelist.view.adapter.AnimeListAdapter;
 import com.example.animelist.view.adapter.PagesAdapter;
 import com.example.animelist.view.pages.AnimeDetailFragment;
 import com.example.animelist.view.pages.AnimeListsFragment;
 import com.example.animelist.view.pages.UserAnimeListsFragment;
+import com.example.animelist.viewmodel.AnimeDetailViewModel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AnimeListAdapter.MovePages,TurnPages{
     ViewPager2 viewPager2;
     TabLayout tabLayout;
     List<Fragment> pages;
     String[] pagesNames;
+    PagesAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         pages.add(1, new AnimeDetailFragment());
         pages.add(2, new UserAnimeListsFragment());
 
-        PagesAdapter adapter = new PagesAdapter(getSupportFragmentManager(), getLifecycle(), pages);
+        adapter = new PagesAdapter(getSupportFragmentManager(), getLifecycle(), pages);
         viewPager2.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager2, true, true, new TabLayoutMediator.TabConfigurationStrategy() {
@@ -56,5 +61,26 @@ public class MainActivity extends AppCompatActivity {
     public void setNoFrameMode() {
         Window window = getWindow();
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+    }
+
+    @Override
+    public void setPage(int id) {
+//        getSharedPreferences("anime",MODE_PRIVATE).edit().putInt("animeId",id).apply();
+//        AnimeDetailFragment animeDetail = (AnimeDetailFragment) pages.get(1);
+        AnimeListsFragment animeList = (AnimeListsFragment) pages.get(0);
+        AnimeObserver.getInstance().unRegisterObservers(animeList);
+//        animeDetail.setAnimeId(id,this);
+//        AnimeObserver.getInstance().notifyObservers();
+        Log.e("observer", "1 setPage(int id) " + id);
+        AnimeDetailViewModel.getDetailAnime(id,this);
+    }
+
+    @Override
+    public void turnPage() {
+
+        viewPager2.setCurrentItem(1);
+        Log.e("observer", "VALUE setCurrentItem(1) " + AnimeObserver.getInstance().countObservers());
+        AnimeObserver animeObserver = AnimeObserver.getInstance();
+        animeObserver.notifyObservers();
     }
 }
